@@ -21,3 +21,8 @@ structured =
 
 # Add a unique ID to the event
 .id = uuid_v4()
+
+# If condition
+if is_null(.tags.environment) {
+    .error = "No environment found"
+}

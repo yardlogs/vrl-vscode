@@ -4,34 +4,42 @@
 	"scopeName": "source.vrl",
 	"patterns": [
 		{
-			"include": "#bare-punctuation"
-		},
-		{
-			"include": "#comment"
-		},
-		{
-			"include": "#control"
-		},
-		{
-			"include": "#function"
-		},
-		{
-			"include": "#operator"
-		},
-		{
-			"include": "#path"
-		},
-		{
-			"include": "#reserved"
-		},
-		{
-			"include": "#value"
-		},
-		{
-			"include": "#variable"
+			"include": "#expression"
 		}
 	],
 	"repository": {
+		"expression" : {
+			"comment": "All valid expressions",
+			"patterns": [
+				{
+					"include": "#bare-punctuation"
+				},
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#control"
+				},
+				{
+					"include": "#function"
+				},
+				{
+					"include": "#operator"
+				},
+				{
+					"include": "#path"
+				},
+				{
+					"include": "#reserved"
+				},
+				{
+					"include": "#value"
+				},
+				{
+					"include": "#variable"
+				}
+			]
+		},
 		"array": {
 			"comment": "Array value",
 			"name": "meta.structure.array.vrl",
@@ -154,7 +162,6 @@
 		},
 		"object": {
 			"comment": "Object value",
-			"name": "meta.structure.dictionary.vrl",
 			"begin": "\\{",
 			"beginCaptures": {
 				"0": {
@@ -177,12 +184,8 @@
 					"include": "#object-value"
 				},
 				{
-					"match": "[^\\s\\}]",
-					"name": "invalid.illegal.expected-dictionary-separator.vrl"
-				},
-				{
-					"comment": "Comment",
-					"include": "#comment"
+					"comment": "expression",
+					"include": "#expression"
 				}
 			]
 		},
